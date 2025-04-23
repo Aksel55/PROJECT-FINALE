@@ -23,10 +23,11 @@ st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 st.markdown(f"""
     <style>
         .header {{
-            background-color: #1E3A8A;
+            background: linear-gradient(#1E3A8A,  #324a8c);
+            background-color: ;
             padding: 0px 10px;
             display: flex;
-            align-items: center;
+            align-items: right;
             justify-content: space-between;
             position: fixed;
             top: 0;
@@ -37,9 +38,10 @@ st.markdown(f"""
         .header h1 {{
             color: white;
             margin: 0;
-            font-size: 30px;
-            text-align: center;
+            font-size: 40px;
+            text-align: right;
             flex: 1;
+            font-weight: 200;
         }}
         .header-right {{
             display: flex;
@@ -51,13 +53,13 @@ st.markdown(f"""
             align-items: center;
             background-color: white;
             border-radius: 10px;
-            padding: 5px;
+            
         }}
         .search-box input {{
             border: none;
             outline: none;
-            padding: 8px;
-            hight : 40 px;
+            padding: 5px;
+            hight : 30 px;
             font-size: 16px;
             border-radius: 10px;
             width: 200px;
@@ -66,9 +68,10 @@ st.markdown(f"""
             background: none;
             border: none;
             cursor: pointer;
-            font-size: 18px;
+            font-size: 16px;
             color: #1E3A8A;
             margin-left: 10px;
+            font-weight: 200;
         }}
         .cart-button {{
             background-color: #FBBF24;
@@ -77,44 +80,46 @@ st.markdown(f"""
             border-radius: 20px;
             padding: 6px 10px;
             font-size: 16px;
-            font-weight: 600;
+            font-weight: 200;
             cursor: pointer;
         }}
         .navbar {{
-            background-color: #374151;
-            padding: 5px;
+            background-color: #324a8c;
+            padding: 5px, 5px 5px;
             display: flex;
             align-items: center;
             justify-content: center;
             position: fixed;
-            top: 60px;
+            top: 70px;
             left: 0;
             width: 100%;
-            z-index: 15;
+            z-index: 10;
         }}
         .nav-center {{
             display: flex;
-            gap: 30px;
+            gap: 20px;
         }}
         .nav-center a {{
-            padding: 5px 5px 5px;
+            padding: 20px 10px 5px;
             color: white;
             text-decoration: none;
             font-size: 16px;
             font-weight: 300;
         }}
         .nav-center a:hover {{
+           
             text-decoration: underline;
         }}
         .logo {{
-            height: 50px;
-            margin-right: 50px;
-            justify-content: center;
+            height: 70px;
+            margin-left: 50px;
+            justify-content: cntere;
             align-items : center;
             display: flex;
                          }}
         .content {{
-            margin-top: 130px;
+            margin-right: 50px;
+            margin-top: 0px;
             padding: 30px;
         }}
     </style>
@@ -124,7 +129,7 @@ st.markdown(f"""
 st.markdown(f"""
     <div class="header">
         <img src="data:image/png;base64,{logo_base64}" class="logo">
-        <h1>CHIHAB 2000 Livres</h1>
+        <h1> Bienvenu sur CHIHAB 2000 Livres</h1>
         <div class="header-right">
             <div class="search-box">
                 <form action="" method="get">
@@ -152,7 +157,7 @@ st.markdown("""
 st.markdown('<div class="content">', unsafe_allow_html=True)
 
 # Récupération des paramètres GET pour la recherche
-query_params = st.experimental_get_query_params()
+query_params = st.query_params
 search_query = query_params.get("search", [""])[0]
 
 # Affichage du résultat ou message d'accueil
